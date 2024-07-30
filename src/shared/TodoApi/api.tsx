@@ -43,3 +43,23 @@ export const deleteTodo = async (id: string) => {
     throw error;
   }
 };
+
+export const patchTodo = async (id: string, data: any) => {
+  try {
+    const res = await fetch(`http://localhost:3001/posts/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+    if (!res.ok) {
+      throw new Error('Failed to update the todo item');
+    }
+
+    const result = await res.json();
+    return result;
+  } catch (error) {
+    console.log('error:' + error);
+  }
+};
