@@ -1,6 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import React from 'react';
 import { patchTodo } from '../../shared/TodoApi/api';
+import { ToggleInt } from './model';
 
 const ToggleCompleteTodo = ({ todo }: ToggleInt) => {
   const queryClient = useQueryClient();

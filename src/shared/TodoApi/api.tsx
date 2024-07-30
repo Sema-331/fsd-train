@@ -15,6 +15,18 @@ export const fetchTodos = async (): Promise<Todo[]> => {
   }
 };
 
+export const fetchTodo = async (id: string): Promise<Todo> => {
+  try {
+    const res = await fetch(`http://localhost:3001/posts/${id}`);
+    if (!res.ok) {
+      throw new Error('Failed to fetch todos');
+    }
+    return res.json();
+  } catch (error) {
+    throw Error('error: ' + error);
+  }
+};
+
 export const addTodo = async (todo: Todo): Promise<void> => {
   const res = await fetch(BASE_URL, {
     method: 'POST',
