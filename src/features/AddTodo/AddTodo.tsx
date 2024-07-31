@@ -36,14 +36,16 @@ const AddTodo = () => {
   return (
     <form onSubmit={hadnles}>
       <Input
+        className="input1"
         value={title}
         onChange={e => setTitle(e.target.value)}
-        placeholder="Title"
+        placeholder="input1"
       />
       <Input
+        className="input2"
         value={secondTitle}
         onChange={e => setSecondTitle(e.target.value)}
-        placeholder="Second Title"
+        placeholder="input2"
       />
       <Button type="submit">Submit</Button>
     </form>
